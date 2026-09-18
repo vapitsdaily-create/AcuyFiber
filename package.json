@@ -1,0 +1,19 @@
+{
+  "name": "acuyfiber-storefront",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AcuyFiber nature-inspired flower vase and home decor storefront",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "start": "node scripts/serve.mjs",
+    "check": "node --check app.js && node --check catalog-data.js && node --check store-config.js && node --check scripts/serve.mjs && node --check scripts/build.mjs && node --check scripts/portable.mjs && node --test tests/catalog.test.mjs tests/server.test.mjs",
+    "test": "node --test tests/catalog.test.mjs tests/server.test.mjs",
+    "build": "node scripts/build.mjs",
+    "portable": "node scripts/portable.mjs",
+    "preview": "node scripts/serve.mjs --dir dist --port 4173"
+  }
+}

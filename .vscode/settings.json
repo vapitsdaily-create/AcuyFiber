@@ -1,0 +1,15 @@
+{
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true
+  },
+  "search.exclude": {
+    "dist/**": true,
+    "AcuyFiber.html": true,
+    "assets/**": true
+  }
+}

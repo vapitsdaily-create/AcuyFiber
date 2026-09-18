@@ -1,0 +1,32 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "AcuyFiber: Start website",
+      "type": "shell",
+      "command": "node",
+      "args": ["scripts/serve.mjs"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "AcuyFiber: Build static website",
+      "type": "shell",
+      "command": "node",
+      "args": ["scripts/build.mjs"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "AcuyFiber: Update portable HTML",
+      "type": "shell",
+      "command": "node",
+      "args": ["scripts/portable.mjs"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    }
+  ]
+}

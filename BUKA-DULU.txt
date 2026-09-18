@@ -1,0 +1,21 @@
+ACUYFIBER - WEBSITE VAS BUNGA & DEKORASI ALAM
+
+1. Ekstrak seluruh ZIP.
+2. Buka folder AcuyFiber menggunakan Visual Studio Code.
+3. Terminal > New Terminal, ketik: npm run dev
+4. Buka http://localhost:3000 di browser.
+
+Perlu Node.js 22+ untuk perintah terminal. Tidak perlu npm install.
+Tanpa Node.js: buka index.html langsung atau AcuyFiber.html di browser.
+Windows dengan Node.js: klik MULAI-WINDOWS.bat.
+
+EDIT HARGA / PRODUK : catalog-data.js
+EDIT WHATSAPP      : store-config.js
+EDIT TAMPILAN      : styles.css
+EDIT TEKS / MENU   : index.html
+
+Paket ini source website interaktif, bukan hanya gambar.
+Belum ada pembayaran otomatis, database pesanan, atau panel admin.
+Harga & nomor WhatsApp belum diisi. Nama toko sudah AcuyFiber.
+
+Panduan lengkap: README.md
