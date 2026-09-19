@@ -1,16 +1,16 @@
 /* AcuyFiber — an airy, nature-inspired editorial storefront. */
 :root {
-  --paper:#faf9f5;
-  --cream:#f2efe6;
-  --ivory:#f6f4ee;
-  --sage:#e8ece1;
-  --sage-deep:#dce3d3;
-  --forest:#344b38;
-  --forest-dark:#24392c;
-  --olive:#6e7b51;
-  --ink:#30392e;
-  --muted:#74786d;
-  --line:#dedfd4;
+  --paper:#fbf7ef;
+  --cream:#f3eadc;
+  --ivory:#fffaf2;
+  --sage:#efe4d1;
+  --sage-deep:#e5d4b8;
+  --forest:#2f2a20;
+  --forest-dark:#18150f;
+  --olive:#a67c2e;
+  --ink:#332d24;
+  --muted:#776d5e;
+  --line:#e4dac9;
   --white:#fff;
   --serif:'Cormorant Garamond','EB Garamond',Georgia,'Times New Roman',serif;
   --sans:'DM Sans','Lato',Arial,sans-serif;
@@ -4666,4 +4666,24 @@ dialog[open] {
     font-size: 5.5px;
     letter-spacing: 1.3px;
   }
+}
+
+/* AcuyFiber wedding identity */
+.brand{gap:14px}
+.brand-logo{width:92px;height:58px;object-fit:contain;object-position:center;display:block;border-radius:3px;background:#070707}
+.brand-text{display:flex;flex-direction:column;line-height:1.05}
+.brand-caption{max-width:245px}
+.site-header{background:rgba(255,250,242,.96);backdrop-filter:blur(14px)}
+.announcement{background:#17130e;color:#e8c56c}
+.announcement .icon{color:#d9ad4f}
+.button-primary{background:#2a2115}
+.button-primary:hover{background:#0f0d09}
+.floating-consult{background:#201a12;color:#f2d177;border-color:#9f7a33}
+.whatsapp-direct{font-weight:700;color:#7a5a20}
+.footer-brand .brand-logo{width:126px;height:82px}
+@media (max-width:760px){
+  .brand-logo{width:68px;height:44px}
+  .brand-text{display:none}
+  .footer-brand .brand-text{display:flex}
+  .footer-brand .brand-logo{width:110px;height:72px}
 }
