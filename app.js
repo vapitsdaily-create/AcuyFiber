@@ -9,7 +9,7 @@
     return;
   }
   const byId = new Map(products.map(product => [product.id, product]));
-  const categoryNames = { vas: 'Vas bunga', dekorasi: 'Dekorasi rumah', taman: 'Patung taman', trofi: 'Trofi & suvenir', all: 'Semua koleksi' };
+  const categoryNames = { vas: 'Vas bunga', dekorasi: 'Dekorasi rumah', taman: 'Patung taman', trofi: 'Trofi & suvenir', plakat: 'Plakat', all: 'Semua koleksi' };
   const styleNames = { natural: 'Natural yang hangat', minimalis: 'Putih yang tenang', klasik: 'Klasik yang berkarakter' };
   const maxQuantity = Number.isInteger(config.maxQuantity) ? Math.max(1, Math.min(config.maxQuantity, 999)) : 99;
   const state = {
@@ -305,7 +305,7 @@
     if (!product) return;
     state.selectedProduct = id;
     state.detailQuantity = 1;
-    $('#product-detail').innerHTML = `<div class="detail-image"><img src="${product.image}" alt="${escape(product.alt)}" width="560" height="560"><span class="detail-image-caption">Foto referensi. Isi paket & aksesori dikonfirmasi terpisah.</span></div><div class="detail-copy"><button class="icon-button close-button" data-action="close" aria-label="Tutup detail produk">${icon('close')}</button><p class="eyebrow">KOLEKSI ACUYFIBER · ${escape(categoryNames[product.category])}</p><h2 id="detail-title">${escape(product.name)}</h2><p class="detail-subtitle">${escape(product.subtitle)}</p><p class="detail-price">${hasPrice(product) ? escape(money.format(product.price)) : 'Harga sesuai detail pesanan'}</p><p class="detail-price-note">${hasPrice(product) ? 'Belum termasuk pengiriman. Ketersediaan dikonfirmasi.' : 'Minta penawaran untuk harga dan ketersediaan.'}</p><p class="detail-description">${escape(product.description)}</p><dl class="detail-facts"><dt>Nuansa warna</dt><dd>${escape(product.color)}</dd><dt>Ukuran & bahan</dt><dd>Dikonfirmasi oleh toko</dd><dt>Ketersediaan</dt><dd>Ditanyakan saat penawaran</dd></dl><div class="detail-actions">${quantityControl(id, 1, 'detail')}<button class="button button-primary" data-action="add-detail" data-id="${id}">Tambah ke keranjang ${icon('bag')}</button></div><button class="detail-save" data-action="favorite" data-id="${id}" aria-pressed="${state.favorites.has(id)}">${icon('heart')} ${state.favorites.has(id) ? 'Tersimpan di favorit' : 'Simpan untuk nanti'}</button><p class="detail-note">${escape(product.note)}</p></div>`;
+    $('#product-detail').innerHTML = `<div class="detail-image"><img src="${product.image}" alt="${escape(product.alt)}" width="560" height="560"><span class="detail-image-caption">Foto referensi. Isi paket & aksesori dikonfirmasi terpisah.</span></div><div class="detail-copy"><button class="icon-button close-button" data-action="close" aria-label="Tutup detail produk">${icon('close')}</button><p class="eyebrow">KOLEKSI ACUYFIBER · ${escape(categoryNames[product.category])}</p><h2 id="detail-title">${escape(product.name)}</h2><p class="detail-subtitle">${escape(product.subtitle)}</p><p class="detail-price">${hasPrice(product) ? escape(money.format(product.price)) : 'Harga sesuai detail pesanan'}</p><p class="detail-price-note">${hasPrice(product) ? 'Belum termasuk pengiriman. Ketersediaan dikonfirmasi.' : 'Minta penawaran untuk harga dan ketersediaan.'}</p><p class="detail-description">${escape(product.description)}</p><dl class="detail-facts"><dt>Nuansa warna</dt><dd>${escape(product.color)}</dd><dt>Tinggi & lebar</dt><dd>Bisa custom melalui chat</dd><dt>Bahan & finishing</dt><dd>Dikonfirmasi oleh toko</dd><dt>Ketersediaan</dt><dd>Ditanyakan saat penawaran</dd></dl><div class="detail-actions">${quantityControl(id, 1, 'detail')}<button class="button button-primary" data-action="add-detail" data-id="${id}">Tambah ke keranjang ${icon('bag')}</button></div><button class="detail-save" data-action="favorite" data-id="${id}" aria-pressed="${state.favorites.has(id)}">${icon('heart')} ${state.favorites.has(id) ? 'Tersimpan di favorit' : 'Simpan untuk nanti'}</button><p class="detail-note">${escape(product.note)}</p></div>`;
     $('#product-dialog').setAttribute('aria-labelledby', 'detail-title');
     $('#product-dialog').removeAttribute('aria-label');
     openDialog('product-dialog');
@@ -325,7 +325,7 @@
     const results = query ? searchProducts(query) : products.slice(0, 6);
     $('#search-summary').textContent = query ? `${results.length} hasil untuk “${query}”` : 'Pilihan untuk memulai';
     $('#search-results').innerHTML = results.length ? results.map(product => `<button class="search-result" data-action="product" data-id="${product.id}"><img src="${product.thumbnail}" alt="" width="64" height="66"><div><h3>${escape(product.name)}</h3><p>${escape(categoryNames[product.category])} · ${escape(priceText(product))}</p></div>${icon('arrow-up')}</button>`).join('')
-      : `<div class="empty-state">${icon('search')}<h3>Belum bertemu yang dicari.</h3><p>Coba kata yang lebih sederhana seperti “vas”, “emas”, “putih”, atau “bambu”.</p><button class="button button-outline" data-action="suggest" data-query="">Lihat karya pilihan</button></div>`;
+      : `<div class="empty-state">${icon('search')}<h3>Belum bertemu yang dicari.</h3><p>Coba kata yang lebih sederhana seperti “vas”, “plakat”, “rusa”, atau “flamingo”.</p><button class="button button-outline" data-action="suggest" data-query="">Lihat karya pilihan</button></div>`;
   }
 
   function openSearch() {
@@ -611,9 +611,9 @@
     $$('[data-store-name]').forEach(element => { element.textContent = storeName; });
     const contactMethods = $('#contact-methods');
     const whatsapp = validWhatsapp();
-    if (whatsapp && contactMethods) {
+    if (whatsapp && contactMethods && !contactMethods.querySelector('.whatsapp-direct')) {
       const link = document.createElement('a');
-      link.className = 'contact-method';
+      link.className = 'contact-method whatsapp-direct';
       link.href = `https://wa.me/${whatsapp}`;
       link.target = '_blank';
       link.rel = 'noopener noreferrer';

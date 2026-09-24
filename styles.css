@@ -832,8 +832,8 @@ h2 em,h1 em {
 
 .category-list {
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:29px
+  grid-template-columns:repeat(5,1fr);
+  gap:22px
 }
 
 .category-card {
@@ -3526,7 +3526,7 @@ dialog[open] {
   }
   .category-list {
     gap:13px;
-    grid-template-columns:repeat(4,minmax(0,1fr))
+    grid-template-columns:repeat(3,minmax(0,1fr))
   }
   .category-image {
     width:100%;
@@ -4686,4 +4686,28 @@ dialog[open] {
   .brand-text{display:none}
   .footer-brand .brand-text{display:flex}
   .footer-brand .brand-logo{width:110px;height:72px}
+}
+
+
+/* AcuyFiber business details */
+.footer-location {
+  padding-top: 10px;
+  margin-top: 10px !important;
+  border-top: 1px solid #5d735344;
+}
+.contact-methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-top: 12px;
+}
+.contact-method {
+  color: #e1e9d7;
+  font-size: 10px;
+  text-decoration: none;
+}
+.contact-method:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
